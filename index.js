@@ -1,9 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import productRouter from './routes/productRoutes.js';
+import productRouter from './routes/productRoute.js';
 import userRouter from './routes/userRoute.js';
 import jwt from "jsonwebtoken";
+import orderRouter from './routes/orderRoute.js';
 
 const app = express();  //create a server
 
@@ -52,6 +53,7 @@ mongoose.connect("mongodb+srv://admin:123@cluster0.jrkfmn6.mongodb.net/?retryWri
 
 app.use("/products", productRouter) //route is the products now
 app.use("/users", userRouter)   //route is the users now
+app.use("/orders",orderRouter) //route is the orders now
 
 
 
