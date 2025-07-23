@@ -5,10 +5,12 @@ import productRouter from './routes/productRoute.js';
 import userRouter from './routes/userRoute.js';
 import jwt from "jsonwebtoken";
 import orderRouter from './routes/orderRoute.js';
+import cors from "cors";
 
 const app = express();  //create a server
-
+app.use(cors());
 app.use(bodyParser.json()); // use this parser for json more clean output
+
 
 app.use(
     (req,res,next)=>{
@@ -51,9 +53,9 @@ mongoose.connect("mongodb+srv://admin:123@cluster0.jrkfmn6.mongodb.net/?retryWri
 //mongodb+srv://admin:123@cluster0.jrkfmn6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 
-app.use("/products", productRouter) //route is the products now
-app.use("/users", userRouter)   //route is the users now
-app.use("/orders",orderRouter) //route is the orders now
+app.use("/api/products", productRouter) //route is the products now
+app.use("/api/users", userRouter)   //route is the users now
+app.use("/api/orders",orderRouter) //route is the orders now
 
 
 
